@@ -1,0 +1,45 @@
+.b {
+  border: 0px solid black;
+}
+.l {
+  width: 1200px;
+  margin: auto;
+}
+header {
+  min-height: 300px;
+}
+header img {
+  width: 100%;
+}
+main {
+  min-height: 500px;
+}
+footer {
+  height: 50px;
+}
+
+.formation {
+  width: 33.33%;
+  float: left;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  padding: 16px;
+  -moz-box-shadow: 0px 2px 5px #000000;
+  -webkit-box-shadow: 0px 2px 5px #000000;
+  box-shadow: 0px 2px 5px #000000;
+}
+.tof {
+  width: 100%;
+}
+.tof img {
+  width: 100%;
+}
+.n {
+  clear: both;
+}
+.info {
+  padding: 10px;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5em;
+}
