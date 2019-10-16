@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Validation js</title>
+    <script src="validation.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- form>table>tr*3>td*2 -->
+    <div id="erreur">
+      <p>Liste des erreurs</p>
+      <div id="erreur2"></div>
+    </div>
+    <form action="">
+      <table align="center">
+        <tr>
+          <td><label for="nom">Nom : </label></td>
+          <td><input autocomplete="off" type="text" name="nom" id="nom" /></td>
+        </tr>
+        <tr>
+          <td><label for="smail">Email : </label></td>
+          <td>
+            <input type="text" autocomplete="off" name="smail" id="smail" />
+          </td>
+        </tr>
+        <tr>
+          <td><label for="pwd">Mot de passe : </label></td>
+          <td><input type="password" name="pwd" id="pwd" /></td>
+        </tr>
+
+        <tr>
+          <td><label for="conf">Confirmation : </label></td>
+          <td><input type="password" name="conf" id="conf" /></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>
+            <button type="button" onclick="validerTout()">Valider</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>
