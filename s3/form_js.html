@@ -35,6 +35,20 @@
           <td><label for="conf">Confirmation : </label></td>
           <td><input type="password" name="conf" id="conf" /></td>
         </tr>
+        <tr></tr>
+        <tr>
+          <td><label for="date">Date de naissance : </label></td>
+          <td>
+            <input
+              type="text"
+              name="date"
+              id="date"
+              placeholder="jj-mm-aaaa"
+              onblur="validerDate()"
+            />
+            <span></span>
+          </td>
+        </tr>
         <tr>
           <td></td>
           <td>

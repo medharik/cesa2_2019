@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>les selecteurs</title>
+    <script src="selcteur.js"></script>
+    <style>
+      a {
+        color: green;
+      }
+      a[href*="http"] {
+        color: red;
+      }
+      .b {
+        border: 2px solid black;
+      }
+      .container {
+        width: 100%;
+        height: 400px;
+      }
+      .produit {
+        width: 33%;
+        height: 300px;
+        float: left;
+        box-sizing: border-box;
+      }
+      .produit:nth-child(2n + 1) {
+        border-color: blue;
+      }
+
+      footer {
+        background: black;
+        color: white;
+        height: 20px;
+      }
+      .container:after {
+        content: "";
+        display: block;
+        clear: both;
+        visibility: hidden;
+        font-size: 0;
+        height: 0;
+      }
+      .n {
+        clear: both;
+      }
+
+      tr:nth-child(3n) {
+        background: rgb(11, 235, 22);
+        color: white;
+      }
+      tr:nth-child(3n + 1) {
+        background: rgb(40, 2, 100);
+        color: rgb(89, 28, 204);
+      }
+      tr:nth-child(3n + 2) {
+        background: rgb(243, 237, 237);
+        color: rgb(248, 42, 42);
+      }
+    </style>
+  </head>
+  <body>
+    <hr />
+    <div id="cesa">
+      <p>
+        NORMAL Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
+        soluta consequuntur perspiciatis distinctio sequi qui libero doloribus
+        nihil nulla autem totam error molestias fuga, facere a amet asperiores
+        accusantium voluptatum?
+      </p>
+      <p class="para">
+        PARA 1 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        Placeat, quo nulla animi nam vel dicta totam dolores aliquam sequi
+        assumenda quaerat eius minus, recusandae reprehenderit dolor iste
+        dignissimos dolore fugit!Adipisci numquam ea aut aspernatur obcaecati,
+        molestias iste ab possimus omnis! Adipisci quibusdam facilis nihil
+        aliquid neque quod nulla, magnam unde reprehenderit porro officiis
+        excepturi voluptatem voluptates, impedit error incidunt.
+      </p>
+      <p class="para">
+        PARA 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab quis
+        maiores iusto repellendus, aperiam fugiat sint quod cumque mollitia
+        illum vero distinctio, beatae unde hic. A laudantium eius quo maiores.
+      </p>
+    </div>
+    <div>
+      DIV APRES CESA <br />
+      <a href="contact.html">contact 1</a><br />
+      <a href="http://google.fr">Google</a><br />
+      <a href="http://fb.com">FB</a><br />
+    </div>
+    <hr />
+    <div class="container b ">
+      <div class="produit b"></div>
+      <div class="produit b"></div>
+      <div class="produit b last"></div>
+    </div>
+    <footer>CESA FOOTER</footer>
+    <table align="center" width="100%">
+      <tr>
+        <td>element 01</td>
+        <td>element 02</td>
+        <td>element 03</td>
+      </tr>
+      <tr>
+        <td>element 01</td>
+        <td>element 02</td>
+        <td>element 03</td>
+      </tr>
+      <tr>
+        <td>element 01</td>
+        <td>element 02</td>
+        <td>element 03</td>
+      </tr>
+      <tr>
+        <td>element 01</td>
+        <td>element 02</td>
+        <td>element 03</td>
+      </tr>
+      <tr>
+        <td>element 01</td>
+        <td>element 02</td>
+        <td>element 03</td>
+      </tr>
+      <tr>
+        <td>element 01</td>
+        <td>element 02</td>
+        <td>element 03</td>
+      </tr>
+      <tr>
+        <td>element 01</td>
+        <td>element 02</td>
+        <td>element 03</td>
+      </tr>
+      <tr>
+        <td>element 01</td>
+        <td>element 02</td>
+        <td>element 03</td>
+      </tr>
+      <tr>
+        <td>element 01</td>
+        <td>element 02</td>
+        <td>element 03</td>
+      </tr>
+      <tr>
+        <td>element 01</td>
+        <td>element 02</td>
+        <td>element 03</td>
+      </tr>
+      <tr>
+        <td>element 01</td>
+        <td>element 02</td>
+        <td>element 03</td>
+      </tr>
+    </table>
+
+    <script>
+      tester();
+    </script>
+  </body>
+</html>

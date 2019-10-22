@@ -18,6 +18,21 @@ function validerEmail() {
     message += "Email non valide";
   }
 }
+function validerDate() {
+  const cdate = document.getElementById("date");
+  const sp = document.querySelector("#date+span");
+  let d = cdate.value.trim();
+  let m_date = /^([1-9]|1[0-2])-([1-9]|[1-2][0-9]|3[01])-(19[0-9]{2}|20[0-9]{2})$/;
+  t = d.split(m_date);
+  console.log(t);
+  t = t.filter(x => x != "");
+  d1 = new Date(t[2], t[1], t[0]);
+  if (!m_date.test(d)) {
+    sp.innerHTML = "date non valide";
+  } else {
+    sp.innerHTML = "ok";
+  }
+}
 function validerTout() {
   validerNom();
   validerEmail();
