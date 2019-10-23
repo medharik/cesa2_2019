@@ -1,0 +1,8 @@
+.violet {
+  background: purple !important;
+  box-shadow: 1px 4px 4px black;
+}
+.nav-link,
+.navbar-brand {
+  color: white !important;
+}
