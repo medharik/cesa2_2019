@@ -23,3 +23,16 @@ function changer() {
   p.type = c.checked ? "text" : "password";
   eye.src = c.checked ? "images/open.png" : "images/close.png";
 }
+
+function tombola(i) {
+  var group = [1, 2, 3, 4, 5, 6];
+  var expose = [
+    "web marketing ",
+    "Google ads",
+    "Facebook Ads",
+    "Linkedin ads ",
+    "EMail marketing",
+    "SEO"
+  ];
+  return expose[i] + ":" + group[i];
+}
