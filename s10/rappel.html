@@ -13,8 +13,18 @@
     />
   </head>
   <body>
-    Email : <input type="text" /><small></small> Mot de passe :
-    <input type="password" /><small></small>
+    Email : <input type="text" name="email" id="email" /><small></small> Mot de
+    passe : <input type="password" id="passe" /><small></small>
+    Cin :
+    <input type="text" id="cin" /><small></small>
+    <select name="" id="pays">
+      <option value="+212">Maroc</option>
+      <option value="+33">France</option>
+    </select>
+    <input type="text" id="ind" size="3" readonly />
+    <input type="tel" />
+    Homme <input type="radio" name="hf" id="homme" value="homme" /> Femme
+    <input type="radio" name="hf" id="femme" value="femme" />
     <button class="btn btn-primary" type="button">Valider</button>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -33,11 +43,7 @@
     ></script>
     <script>
       $(document).ready(function() {
-        $(document).on("blur   keyup", "input", function() {
-          // if ($(this).attr("type") == "button") {
-
-          //}
-
+        $(document).on("blur   keyup", "input, textarea", function() {
           if ($(this).val() == "") {
             $(this)
               .next("small")
@@ -55,6 +61,46 @@
           //});
           $("input").blur();
         });
+
+        $(document).on("blur keyup", "#email", function() {
+          let modele = /^[a-zA-Z]{2,}\w{0,}@cesa.ma$/;
+          if (!modele.test($(this).val())) {
+            $(this)
+              .next("small")
+              .addClass("text-danger")
+              .html("Email invalide");
+          }
+        });
+
+        $(document).on("blur keyup", "#cin", function() {
+          let modele = /^[a-zA-Z]{1,2}[ -/]*[0-9]{4,6}$/;
+          if (!modele.test($(this).val())) {
+            $(this)
+              .next("small")
+              .addClass("text-danger")
+              .html("CIn invalide");
+          }
+        });
+        $(document).on("change", "#pays", function() {
+          $(this)
+            .next("input")
+            .val($(this).val());
+        });
+        $(document).on(
+          "change",
+          "#homme, #femme, input[name='hf']",
+          function() {
+            if ($(this).val() == "homme") {
+              $("body")
+                .addClass("bg-info")
+                .removeClass("bg-danger");
+            } else {
+              $("body")
+                .addClass("bg-danger")
+                .removeClass("bg-info");
+            }
+          }
+        );
       });
     </script>
   </body>
