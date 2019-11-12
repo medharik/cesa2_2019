@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Jquery bilan</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6  shadow p-2">
+          <form action="http://google.fr">
+            <div class="form-group">
+              <i class="fas fa-frown text-danger "></i>
+              <label for="cin">CIN </label>
+              <input type="text" id="cin" class="form-control" />
+              <small></small>
+            </div>
+            <div class="form-group">
+              <label for="mat">Matricule de la voiture </label>
+              <input type="text" id="mat" class="form-control" />
+              <small></small>
+            </div>
+            <button type="button" class="btn btn-primary btn-block">
+              Valider
+            </button>
+          </form>
+        </div>
+        <div class="col-md-6 shodow">
+          <div class="alert alert-danger"></div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(document).ready(function() {
+        $(".fas").hide();
+
+        $(".alert-danger").hide();
+        $(document).on("click", "button", function() {
+          let modelCin = /^[a-z]{1,2}[0-9]{6}$/;
+          let modelMat = /^[0-9]{1,8}[-/]{0,}[a-zA-Z]{1}[-/]{0,}[0-9]{1,8}$/;
+          let erreur = "";
+          if (!modelCin.test($("#cin").val())) {
+            erreur += "le CIN : " + $("#cin").val() + " est invalide<br>";
+            $("#cin")
+              .next("small")
+              .html("le CIN : " + $("#cin").val() + " est invalide<br>")
+              .css("color", "red");
+            $(".fas").show();
+          } else {
+            $("#cin")
+              .next("small")
+              .html("");
+            $(".fas").hide();
+          }
+          if (!modelMat.test($("#mat").val())) {
+            erreur += "Matricule de voiture est invalide";
+            $("#mat")
+              .next("small")
+              .html("le mat : " + $("#mat").val() + " est invalide<br>")
+              .css("color", "red");
+          }
+          if (erreur != "") {
+            $(".alert-danger")
+              .html(erreur)
+              .addClass("alert-danger")
+              .removeClass("alert-success")
+              .show();
+          } else {
+            $(".alert-danger")
+              .html(
+                "CIN : " + $("#cin").val() + "<br>" + "Mat : " + $("#mat").val()
+              )
+              .addClass("alert-success")
+              .removeClass("alert-danger")
+              .show();
+
+            //envoie du form
+            if (confirm("voulez vous envoyer ce formulaire")) {
+              $("form").submit();
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

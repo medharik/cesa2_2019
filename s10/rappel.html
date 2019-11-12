@@ -13,19 +13,21 @@
     />
   </head>
   <body>
-    Email : <input type="text" name="email" id="email" /><small></small> Mot de
-    passe : <input type="password" id="passe" /><small></small>
-    Cin :
-    <input type="text" id="cin" /><small></small>
-    <select name="" id="pays">
-      <option value="+212">Maroc</option>
-      <option value="+33">France</option>
-    </select>
-    <input type="text" id="ind" size="3" readonly />
-    <input type="tel" />
-    Homme <input type="radio" name="hf" id="homme" value="homme" /> Femme
-    <input type="radio" name="hf" id="femme" value="femme" />
-    <button class="btn btn-primary" type="button">Valider</button>
+    <form action="contact.html" id="form">
+      Email : <input type="text" name="email" id="email" /><small></small> Mot
+      de passe : <input type="password" id="passe" /><small></small>
+      Cin :
+      <input type="text" id="cin" /><small></small>
+      <select name="" id="pays">
+        <option value="+212">Maroc</option>
+        <option value="+33">France</option>
+      </select>
+      <input type="text" id="ind" size="3" readonly />
+      <input type="tel" />
+      Homme <input type="radio" name="hf" id="homme" value="homme" /> Femme
+      <input type="radio" name="hf" id="femme" value="femme" />
+      <button class="btn btn-primary" type="button">Valider</button>
+    </form>
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -43,12 +45,15 @@
     ></script>
     <script>
       $(document).ready(function() {
+        let error = false;
         $(document).on("blur   keyup", "input, textarea", function() {
           if ($(this).val() == "") {
             $(this)
               .next("small")
               .addClass("text-danger")
               .html("ce champs est requis");
+
+            console.log("erreur requis ", error);
           } else {
             $(this)
               .next("small")
@@ -56,10 +61,18 @@
           }
         });
         $(document).on("click", "button", function() {
-          // $("input").each(function(index, element) {
-          // $(element).blur();
-          //});
           $("input").blur();
+          let er = true;
+          $("small").each(function(index, element) {
+            console.log("small", $(this).html());
+            if ($(this).html() != "") {
+              er = false;
+            }
+          });
+          console.log("er : "+er)
+          if (er == true) {
+            $("#form").submit();
+          }
         });
 
         $(document).on("blur keyup", "#email", function() {
