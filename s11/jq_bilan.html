@@ -22,7 +22,7 @@
         <div class="col-md-6  shadow p-2">
           <form action="http://google.fr">
             <div class="form-group">
-              <i class="fas fa-frown text-danger "></i>
+              <i class="fas  fa-frown text-danger "></i>
               <label for="cin">CIN </label>
               <input type="text" id="cin" class="form-control" />
               <small></small>
@@ -39,6 +39,47 @@
         </div>
         <div class="col-md-6 shodow">
           <div class="alert alert-danger"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 border">
+          <img src="" alt="" id="iplay" />
+          <audio id="aplay" src="" controls></audio>
+        </div>
+        <div class="col-md-9 border">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="card" style="width: 18rem;">
+                <img
+                  src="http://lorempixel.com/400/200/sports/1/"
+                  class="card-img-top"
+                  alt="..."
+                  data-hit="music/Kalimba.mp3"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">BASE BALL FOR ALL</h5>
+
+                  <a href="#" class="btn btn-primary">PLAY</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card" style="width: 18rem;">
+                <img
+                  src="http://lorempixel.com/400/200/sports//"
+                  class="card-img-top"
+                  data-hit="music/Sleep Away.mp3"
+                  alt="..."
+                />
+                <div class="card-body">
+                  <h5 class="card-title">BASE BALL FOR ALL</h5>
+
+                  <a href="#" class="btn btn-primary">PLAY</a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -107,6 +148,16 @@
               $("form").submit();
             }
           }
+        });
+
+        //pour lesd tofs
+        $(document).on("click", "img", function() {
+          let source = $(this).attr("src");
+          let music = $(this).data("hit");
+          $("#iplay").attr("src", source);
+          $("#aplay")
+            .attr("src", music)
+            .play();
         });
       });
     </script>
